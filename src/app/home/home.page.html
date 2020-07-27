@@ -1,0 +1,91 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      La michoacana... es natural
+    </ion-title>
+    <ion-buttons slot="end"> 
+      <ion-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="small">La michoacana ... es natural</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="row mt-1 ml-2">
+    <!--    <form submit="showIds()">
+        <div class="form-group">
+            -->
+            <input type="text" placeholder={{valueTablero}}>
+            <button class="btn btn-primary ml-2"
+            (click) = "showIds()"
+            >Buscar</button>
+    <!--
+        </div>
+    </form> 
+    -->
+    <label class="ml-3">${{subtotal}}.00</label>
+</div>
+<!--
+<app-producto *ngFor = "let producto of productos" 
+    [producto] = "producto"
+    #listProduct
+    >
+</app-producto>-->
+<div class="card"
+    #cardProducto
+    *ngFor = "let producto of productos"
+>
+    <div class="card-header d-flex justify-content-between 
+    align-item-center" 
+    >
+        {{producto.description}} (Código = {{producto.id}})
+        <button class="btn btn-sm btn-primary"
+        (click) = "productoSeleccionado(producto.id)"
+        >Elegir</button>
+    </div>
+</div>
+
+<ion-button expand="block"
+    [routerLink]="['/ticket']"
+    (click) = "generarTicket()"
+>Ticket</ion-button>
+
+<div *ngFor = "let numGroup of numberGroups" 
+                    class="ml-1">
+    <button *ngFor = "let num of numGroup"
+            class="btn btn-primary btn-lg ml-1 mt-1"
+            (click) = "onClickButtons(num)"
+            id= "button{{num}}">
+            {{num}}
+    </button>
+</div>
+
+
+<div class = "row mt-2">
+    <div class = "col-md ml-3" >
+      <ul class="list-group" id="ticketList">
+        <!-- list-group-item-action movimiento de la lista 
+        [class.active] elemento seleccionado
+        -->
+        <li 
+          *ngFor = "let item of ticket"
+          class="list-group-item list-group-item-action"
+          [class.active] = "item == selectedProduct"
+          (click) = "openForEdit(item)"
+          >
+          <span class="badge badge-primary">
+            {{item.logo}}
+          </span>
+          {{ item.description }} ${{item.price*item.qty}}
+        </li>
+      </ul>
+    </div>
+  </div>  
+</ion-content>

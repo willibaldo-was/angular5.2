@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref= "/ticket"></ion-back-button>
+    </ion-buttons>
+    <ion-title>ticket-detail</ion-title>
+  </ion-toolbar>
+  <ion-buttons slot="End" color="Dark">
+    <ion-button>
+      print
+    </ion-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content *ngIf="ticket; else Loading">
+  La Michoacana es... natural
+<p>        AOSW851118 8Y7</p>
+
+  {{ticket.time.toDate()| date:'medium'}}
+<p>No: {{ticket.id}}</p>   
+  Total = {{ticket.subtotal}}
+  <div class="row mt-2">
+    <div class="col-md ml-3">
+      <ul class="list-group">
+        <li *ngFor = "let producto of ticket.productos">
+          {{producto.qty}}-{{producto.description}} x ${{producto.price}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  Gracias por su compra
+  <p>contacto: willibaldo@gmail.com</p>
+  
+</ion-content>
+<ng-template #Loading>Loading...wait a moment</ng-template>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>tickets</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<!--
+<div *ngIf = "tickets.length > 0; else notickets">-->
+  <div class="card"
+        #cardProducto
+        *ngFor = "let ticket of tickets"
+        [routerLink] = "['/ticket',ticket.id]"
+    >
+        <div class="card-header d-flex justify-content-between 
+        align-item-center" 
+        >
+            {{ticket.noTicket}} - ${{ticket.subtotal}} - {{ticket.time.toDate()| date:'medium'}}
+            <button class="btn btn-sm btn-primary"
+            [routerLink] = "['/ticket',ticket.id]"
+            >Ver</button>
+            <button class="btn btn-sm btn-primary"
+            >Print</button>
+        </div><!--div card ticket id-->
+    </div>
+  <!--
+  </div> div if-->
+  <ng-template #notickets>
+    <p>No hay tickets</p>
+  </ng-template>
+</ion-content>
+<!--
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor = "let ticket of tickets">
+      {{ticket.id}} - ${{ticket.subtotal}}
+    </ion-item>
+  </ion-list>
+</ion-content>-->

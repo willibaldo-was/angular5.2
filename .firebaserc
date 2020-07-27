@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "michudatabase": {
+      "hosting": {
+        "app": [
+          "michudatabase"
+        ]
+      }
+    }
+  }
+}
