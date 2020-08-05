@@ -9,22 +9,22 @@
 <ion-content>
 <!--
 <div *ngIf = "tickets.length > 0; else notickets">-->
-  <div class="card"
+  <ion-list class="card"
         #cardProducto
         *ngFor = "let ticket of tickets"
         [routerLink] = "['/ticket',ticket.id]"
     >
-        <div class="card-header d-flex justify-content-between 
+        <ion-item class="card-header d-flex justify-content-between 
         align-item-center" 
         >
             {{ticket.noTicket}} - ${{ticket.subtotal}} - {{ticket.time.toDate()| date:'medium'}}
-            <button class="btn btn-sm btn-primary"
+            <ion-button class="btn btn-sm btn-primary"
             [routerLink] = "['/ticket',ticket.id]"
-            >Ver</button>
+            >Ver</ion-button>
             <button class="btn btn-sm btn-primary"
             >Print</button>
-        </div><!--div card ticket id-->
-    </div>
+        </ion-item><!--div card ticket id-->
+    </ion-list>
   <!--
   </div> div if-->
   <ng-template #notickets>

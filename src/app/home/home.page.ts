@@ -28,7 +28,7 @@ export class HomePage implements OnInit{
   }//onInit
   banderaPlu : number=0;
   numberGroups = [    [7,8,9,'Del','Clear'],    [4,5,6,'(+)','(-)'],
-                      [1,2,3,'Qty','(?)'],      [0,',','PLU']
+                      [1,2,3,'Qty','E/S'],      [0,',','PLU','Z']
   ];
   productArray: ProductoInterface[]; ticket: ProductoInterface[]; selectedProduct: ProductoInterface;
   valueTablero : string="Escribe Codigo PLU";  x: string="" ; qty: number; i: number; subtotal: number=0;
@@ -57,6 +57,10 @@ export class HomePage implements OnInit{
         break;
       case "Clear":
         this.valueTablero="";
+        this.subtotal=0;
+        this.ticket = [];
+        this.productoService.deleteAll();
+        this.productoService.subtotal = 0;
         break;
     }//switch
   }

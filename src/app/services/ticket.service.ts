@@ -5,10 +5,13 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument}
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+type CollectionPredicate<T> = string| AngularFirestoreCollection; 
+
 @Injectable({
   providedIn: 'root'
 })
 export class TicketService {
+
   private ticketCollection: AngularFirestoreCollection<TicketInterface>;
   private tickets: Observable<TicketInterface[]>;
   private ticketDoc: AngularFirestoreDocument<TicketInterface>;
@@ -25,6 +28,7 @@ export class TicketService {
       }
     ));
   }//  constructor
+  
   getTickets(){
     return this.tickets;
   }

@@ -25,6 +25,24 @@ export class ProductoService {
     ];
     this.ticket = [];  
   } // fin constructor
+  deleteAll(){
+    this.productos = [
+      {id:'1', description:"Hdo Sencillo", price:16, logo: 'âœ“',qty: 1,total:16,hide:true},
+      {id:'2', description:"Hdo Doble", price:30, logo: 'âœ“',qty: 1,total:30,hide:true},
+      {id:'3', description:"Canasta", price:40, logo: 'âœ“',qty: 1,total:40,hide:true},
+      {id:'4', description:"Pta Fruta", price:17, logo: 'âœ“',qty: 1,total:17,hide:true},
+      {id:'5', description:"Pta Crema", price:20, logo: 'âœ“',qty: 1,total:20,hide:true},
+      {id:'6', description:"Nuez Entera", price:30, logo: 'âœ“',qty: 1,total:30,hide:true},
+      {id:'7', description:"Pta Cubierta", price:30, logo: 'âœ“',qty: 1,total:30,hide:true},
+      {id:'8', description:"Agua 0.5 lt", price:17, logo: 'âœ“',qty: 1,total:17,hide:true},
+      {id:'9', description:"Agua 1 lt", price:30, logo: 'âœ“',qty: 1,total:30,hide:true},
+      {id:'10', description:"Fresas", price:40, logo: 'âœ“',qty: 1,total:40,hide:true},
+      {id:'11', description:"Litro Helado", price:120, logo: 'âœ“',qty: 1,total:120,hide:true},
+      {id:'12', description:"Banana", price:55, logo: 'âœ“',qty: 1,total:55,hide:true},
+      {id:'13', description:"Ord. gorditas", price:35, logo: 'âœ“',qty: 1,total:35,hide:true}
+    ];
+    this.ticket = [];  
+  }
   getIdProducts(){
     return this.productos;
   }
