@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { TicketInterface } from '../models/ticket.interface';
-import { ProductoInterface } from '../models/producto.interface';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-type CollectionPredicate<T> = string| AngularFirestoreCollection; 
 
 @Injectable({
   providedIn: 'root'

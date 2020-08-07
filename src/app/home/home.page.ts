@@ -28,7 +28,7 @@ export class HomePage implements OnInit{
   }//onInit
   banderaPlu : number=0;
   numberGroups = [    [7,8,9,'Del','Clear'],    [4,5,6,'(+)','(-)'],
-                      [1,2,3,'Qty','E/S'],      [0,',','PLU','Z']
+                      [1,2,3,'Qty','Prueba'],      [0,',','PLU','Z']
   ];
   productArray: ProductoInterface[]; ticket: ProductoInterface[]; selectedProduct: ProductoInterface;
   valueTablero : string="Escribe Codigo PLU";  x: string="" ; qty: number; i: number; subtotal: number=0;
@@ -62,6 +62,16 @@ export class HomePage implements OnInit{
         this.productoService.deleteAll();
         this.productoService.subtotal = 0;
         break;
+      case "Z":
+        this.ventasService.add("ventas",{
+          cliente: "Venta Mostrador",
+          fecha: "5 de agosto de 2020",
+          importe: 350
+        }).then(response => console.log(response))
+          .catch(err => console.log(err))
+        break;
+      case "Prueba":
+        this.ventasService.col$("ventas").subscribe(listDoc => console.log(listDoc));
     }//switch
   }
   generarTicket(){
